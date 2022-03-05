@@ -1,0 +1,64 @@
+@use "../../scss/colors";
+.about {
+    position: relative;
+    min-height: min(95vh, calc(100vh - 60px));
+    transition: background-color 0.3s ease-in-out;
+
+    .title {
+        font-size: 2.5rem;
+        font-weight: bolder;
+        text-align: center;
+        padding: 1rem;
+
+        transition: color 0.3s ease-in-out;
+    }
+
+    .description {
+        font-size: 1.5rem;
+        padding: 1rem;
+        transition: color 0.3s ease-in-out;
+    }
+
+    .list {
+        padding: 1rem;
+        font-size: 1rem;
+        list-style: none;
+        width: fit-content;
+
+        transition: color 0.3s ease-in-out;
+
+        .item {
+            padding: 1rem 0;
+
+            svg {
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
+
+.dark {
+    background-color: colors.$dark--bg;
+    .title {
+        color: colors.$dark--text;
+    }
+    .description {
+        color: colors.$dark--text;
+    }
+    .list {
+        color: colors.$dark--text;
+    }
+}
+
+.light {
+    background-color: colors.$light--bg;
+    .title {
+        color: colors.$light--text;
+    }
+    .description {
+        color: colors.$light--text;
+    }
+    .list {
+        color: colors.$light--text;
+    }
+}

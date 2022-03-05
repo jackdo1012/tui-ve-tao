@@ -1,0 +1,141 @@
+@use "../../scss/colors";
+
+.navbar {
+    width: 100vw;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+
+    transition: background-color 0.3s ease-in-out;
+
+    .list {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        list-style-type: none;
+
+        align-items: center;
+        height: max(5vh, 60px);
+
+        .item {
+            cursor: pointer;
+            position: relative;
+
+            a {
+                text-decoration: none;
+                display: flex;
+                transition: background-color 0.3s ease-in-out;
+                padding: 0.5rem;
+
+                justify-content: center;
+                align-items: center;
+                border-radius: 0.7rem;
+            }
+
+            #darkLightSwitch {
+                display: none;
+                visibility: hidden;
+
+                & + label > div {
+                    position: relative;
+                    width: 6rem;
+                    height: 2.6rem;
+                    border-radius: 5rem;
+
+                    cursor: pointer;
+
+                    &::before {
+                        content: "";
+                        position: absolute;
+                        top: 0rem;
+                        left: 0rem;
+
+                        width: 2.7rem;
+                        height: 2rem;
+                        border-radius: 5rem;
+                        background-color: #fff;
+
+                        transition: all 0.3s ease-in-out;
+                        z-index: 99999;
+                    }
+
+                    svg {
+                        position: absolute;
+                        width: 2.5rem;
+                        height: 1.8rem;
+                        top: 0.1rem;
+                        transition: display 0.3s ease-in-out;
+
+                        &:first-child {
+                            left: 0.1rem;
+                            display: none;
+                        }
+
+                        &:nth-child(2) {
+                            right: 0.1rem;
+                            display: block;
+                        }
+                    }
+                }
+
+                &:checked + label > div {
+                    &::before {
+                        left: calc(100% - 2.7rem);
+                    }
+                    svg {
+                        &:first-child {
+                            display: block;
+                        }
+                        &:nth-child(2) {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.dark {
+    background-color: colors.$dark--nav-bg;
+    color: colors.$dark--nav-yellow;
+
+    .item {
+        a {
+            background-color: colors.$dark--nav-item-bg;
+            color: colors.$dark--nav-yellow;
+            border: 0.3rem solid colors.$dark--nav-border;
+
+            &.selected {
+                box-shadow: 0 0 3rem colors.$dark--nav-border;
+            }
+        }
+        #darkLightSwitch {
+            & + label > div {
+                border: 0.3rem solid colors.$dark--nav-border;
+            }
+        }
+    }
+}
+
+.light {
+    background-color: colors.$light--nav-bg;
+    color: colors.$light--nav-yellow;
+
+    .item {
+        a {
+            background-color: colors.$light--nav-item-bg;
+            color: colors.$light--nav-yellow;
+            border: 0.3rem solid colors.$light--nav-border;
+
+            &.selected {
+                box-shadow: 0 0 3rem colors.$light--nav-border;
+            }
+        }
+        #darkLightSwitch {
+            & + label > div {
+                border: 0.3rem solid colors.$light--nav-border;
+            }
+        }
+    }
+}

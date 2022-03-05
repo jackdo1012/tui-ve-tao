@@ -1,0 +1,20 @@
+{
+    "short_name": "Tui vẽ táo",
+    "name": "Tui vẽ táo tổng hợp",
+    "icons": [
+        {
+            "src": "favicon.ico",
+            "sizes": "64x64 32x32 24x24 16x16",
+            "type": "image/x-icon"
+        },
+        {
+            "src": "tao.png",
+            "type": "image/png",
+            "sizes": "1000x1000"
+        }
+    ],
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#000000",
+    "background_color": "#ffffff"
+}

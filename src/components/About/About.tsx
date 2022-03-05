@@ -1,20 +1,20 @@
-import React, { useEffect } from "react"
-import { useAppDispatch, useAppSelector } from "../../app/hooks"
-import { changeAboutClass } from "../../slice/componentClassSlice"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faFacebook } from "@fortawesome/free-brands-svg-icons"
-import styles from "./About.module.scss"
-import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons"
-import { RootState } from "../../app/store"
+import { faFacebook } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { RootState } from "../../app/store";
+import { changeAboutClass } from "../../slice/componentClassSlice";
+import styles from "./About.module.scss";
 
 const About: React.FC = () => {
-    const dispatch = useAppDispatch()
+    const dispatch = useAppDispatch();
     const dark: boolean = useAppSelector(
-        (state: RootState) => state.darkLight.dark
-    )
+        (state: RootState) => state.darkLight.dark,
+    );
     useEffect(() => {
-        dispatch(changeAboutClass(styles.about))
-    }, [])
+        dispatch(changeAboutClass(styles.about));
+    }, []);
     return (
         <div className={`${styles.about} ${dark ? styles.dark : styles.light}`}>
             <p className={styles.title}>Giới thiệu</p>
@@ -25,11 +25,12 @@ const About: React.FC = () => {
                     onClick={() =>
                         window.open(
                             "https://www.facebook.com/tui.ve.tao",
-                            "_blank"
+                            "_blank",
                         )
                     }
-                    style={{ cursor: "pointer" }}>
-                    <FontAwesomeIcon icon={faFacebook} />{" "}
+                    style={{ cursor: "pointer" }}
+                >
+                    <FontAwesomeIcon icon={faFacebook} />
                     https://www.facebook.com/tui.ve.tao
                 </li>
                 <li className={styles.item}>
@@ -41,7 +42,7 @@ const About: React.FC = () => {
                 </li>
             </ul>
         </div>
-    )
-}
+    );
+};
 
-export default About
+export default About;

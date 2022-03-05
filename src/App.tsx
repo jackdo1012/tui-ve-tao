@@ -1,20 +1,18 @@
-import React from "react"
-import Images from "./components/Images//Images"
-import styles from "./App.module.scss"
-// import { useAppSelector } from "./app/hooks"
-// import { RootState } from "./app/store"
-import Navbar from "./components/Navbar/Navbar"
+import React from "react";
+import Images from "./components/Images//Images";
+import styles from "./App.module.scss";
+import Navbar from "./components/Navbar/Navbar";
 import {
     BrowserRouter as Router,
     Route,
     Navigate,
     Routes,
-} from "react-router-dom"
-import About from "./components/About/About"
-import GlobalStyles from "./components/GlobalStyles/GlobalStyles"
-import { io, Socket } from "socket.io-client"
+} from "react-router-dom";
+import About from "./components/About/About";
+import GlobalStyles from "./components/GlobalStyles/GlobalStyles";
+import { io, Socket } from "socket.io-client";
 
-const socket: Socket = io(`${process.env.REACT_APP_SERVER_URL}`)
+const socket: Socket = io(`${process.env.REACT_APP_SERVER_URL}`);
 
 const App: React.FC = () => {
     // const componentsClassName = useAppSelector(
@@ -38,7 +36,7 @@ const App: React.FC = () => {
                 </Router>
             </div>
         </GlobalStyles>
-    )
-}
+    );
+};
 
-export default App
+export default App;

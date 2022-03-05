@@ -1,34 +1,34 @@
-import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import React, { ChangeEvent, useEffect } from "react"
-import { Link } from "react-router-dom"
-import { useAppDispatch, useAppSelector } from "../../app/hooks"
-import { RootState } from "../../app/store"
-import { changeNavbarClass } from "../../slice/componentClassSlice"
-import { changeMode } from "../../slice/darkLightSlice"
-import styles from "./Navbar.module.scss"
-import { useLocation } from "react-router-dom"
+import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { ChangeEvent, useEffect } from "react";
+import { useAppDispatch, useAppSelector } from "../../app/hooks";
+import { RootState } from "../../app/store";
+import { changeNavbarClass } from "../../slice/componentClassSlice";
+import { changeMode } from "../../slice/darkLightSlice";
+import styles from "./Navbar.module.scss";
+import { useLocation, Link } from "react-router-dom";
 
 const Navbar: React.FC = () => {
-    const dispatch = useAppDispatch()
-    const location = useLocation()
+    const dispatch = useAppDispatch();
+    const location = useLocation();
     const dark: boolean = useAppSelector(
-        (state: RootState) => state.darkLight.dark
-    )
+        (state: RootState) => state.darkLight.dark,
+    );
     const darkLightSwitch = (e: ChangeEvent<HTMLInputElement>) => {
-        dispatch(changeMode(e.target.checked))
-    }
+        dispatch(changeMode(e.target.checked));
+    };
     useEffect(() => {
-        dispatch(changeNavbarClass(styles.navbar))
+        dispatch(changeNavbarClass(styles.navbar));
 
         if (!localStorage.getItem("dark")) {
-            localStorage.setItem("dark", true.toString())
+            localStorage.setItem("dark", true.toString());
         }
-    }, [])
+    }, []);
 
     return (
         <div
-            className={`${styles.navbar} ${dark ? styles.dark : styles.light}`}>
+            className={`${styles.navbar} ${dark ? styles.dark : styles.light}`}
+        >
             <ul className={styles.list}>
                 <li className={styles.item}>
                     <Link
@@ -37,7 +37,8 @@ const Navbar: React.FC = () => {
                                 ? styles.selected
                                 : ""
                         }
-                        to="/images">
+                        to="/images"
+                    >
                         Hình ảnh
                     </Link>
                 </li>
@@ -48,7 +49,8 @@ const Navbar: React.FC = () => {
                                 ? styles.selected
                                 : ""
                         }
-                        to="/about">
+                        to="/about"
+                    >
                         Giới thiệu
                     </Link>
                 </li>
@@ -68,7 +70,7 @@ const Navbar: React.FC = () => {
                 </li>
             </ul>
         </div>
-    )
-}
+    );
+};
 
-export default Navbar
+export default Navbar;
